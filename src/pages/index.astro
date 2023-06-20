@@ -3,14 +3,14 @@ import Layout from '../layouts/Layout.astro';
 import {Prepr} from '../lib/prepr.js';
 import GetArticles from '../queries/get-articles.js';
 
-const response = await Prepr(GetArticles)
+const response = await Prepr(GetArticles, {})
 
 const { data } = await response.json()
 
 const articles = data.Articles
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Test test">
 	<h1>
 		My blog site
 	</h1>

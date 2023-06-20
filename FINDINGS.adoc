@@ -1,0 +1,37 @@
+= Findings
+
+
+== Editor
+
+https://news-vpro-mihxil.prepr.io/
+
+- Bootstrapped with sample data/model
+
+
+== API
+Just put the key in `.env`
+
+This repo is a for of a astro-demo from prepr. Will just play a bit with it.
+
+== Astro example
+
+- install yarn and pnpm using brew, then follow the steps in `README.md`
+
+
+== Issues
+
+- Het was mogelijk om een artikel te maken zonder content, artikel pagina gaf foutmelding. Validatie-issue/frontend-issue?
+
+- De titel zag er eerst raar uit:
++
+image:findings/raar-karakter.png[]
+Kon domweg gefixt worden in de redactieomgeving, want daar had ik blijkbaar een onzichbare whitespace gemaakt. Maar raar dat dat zo makkelijk gebeurt.
+
+
+== Data-migratie
+
+https://docs.prepr.io/developing-with-prepr/migrate-content
+https://docs.prepr.io/reference/rest/v1/content-items-create-update-and-destroy
+
+
+

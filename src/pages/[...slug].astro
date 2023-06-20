@@ -18,7 +18,6 @@ const article = data.Article
         {
             article.content.map((content) => (
             <div>
-
                 {
                     content.__typename === "Assets" &&
                     <img src={content.items[0].url} width="300" height="250"/>

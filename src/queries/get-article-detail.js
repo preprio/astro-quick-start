@@ -6,7 +6,7 @@ query ($slug: String) {
      content {
        __typename
        ... on Text {
-         body
+         body        
          text
        }
        ... on Assets {
