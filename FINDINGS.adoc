@@ -18,7 +18,15 @@ This repo is a for of a astro-demo from prepr. Will just play a bit with it.
 - install yarn and pnpm using brew, then follow the steps in `README.md`
 
 
-== Issues
+== Model
+
+No idea of the model allowe for enough features. E.g. I tried to add a UUID field, to store the original UUID in magnolia. I think I could only try to validate it with regex pattern?
+
+In this case it would perhaps make sense to just reused the id, UUID are unique, aren't they? I haven't figured out how to do that yet.
+- Simple posting to content_images/<my uuid> gives 404. 
+
+
+== Issues & Remarks
 
 - Het was mogelijk om een artikel te maken zonder content, artikel pagina gaf foutmelding. Validatie-issue/frontend-issue?
 
@@ -26,6 +34,9 @@ This repo is a for of a astro-demo from prepr. Will just play a bit with it.
 +
 image:findings/raar-karakter.png[]
 Kon domweg gefixt worden in de redactieomgeving, want daar had ik blijkbaar een onzichbare whitespace gemaakt. Maar raar dat dat zo makkelijk gebeurt.
+- Ik weet niet wat ik er van vind dat alles is geprefixt met locales.
+- Debuggen kan ook via de gui bij de access token. Daar kun je zien wat je recent fout deed.
+- Ik had mgnl_uuid veld per ongeluk een maximale lengte gegeven. Dat later niet nodig gevonden, en weer verwijderd, maar hij blijft fouten geven over body.length.max. Caching? Defaults?
 
 
 == Data-migratie
@@ -41,7 +52,7 @@ https://docs.prepr.io/reference/rest/v1/content-items-create-update-and-destroy
 mihxil@baleno:~$ python3 -m venv ~/venvs/vpro-migrate
 mihxil@baleno:~$ source ~/venvs/vpro-migrate/bin/activate
 
-pip3 install elasticsearch python-dotenv
+pip3 install elasticsearch python-dotenv requests
 ----
 
 Tunnel ES:
