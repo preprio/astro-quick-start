@@ -25,8 +25,23 @@ def get_by_mgnl_uuid(uuid):
             return None
     else:
         return None
+    
+def to_json(value):
+    if isinstance(value, list):
+        return {
+            "items": list(map(lambda v: to_json(v), filter(lambda v: v != '', value)))
+        }
+    if isinstance(value, str):
+        return {
+            "body": value
+        }
+    if isinstance(value, bool):
+        return {
+            "value": value
+        }
+    raise Exception("Unknown type: " + str(type(value)))
 
-def post_to_prepr(fields):
+def post_to_prepr(fields, original):
     incoming_uuid = fields['id']
     result = get_by_mgnl_uuid(incoming_uuid)
     uuid = result['id'] if result else None
@@ -41,7 +56,7 @@ def post_to_prepr(fields):
              }
            },
           "publish_on": {
-             "nl-NL": 1600262640
+             "nl-NL": original['publishDate'] / 1000
            },
            "items": {
                "nl-NL": {        
@@ -50,9 +65,8 @@ def post_to_prepr(fields):
            }
     }
     for key in fields:      
-        json['items']['nl-NL'][key] = {
-           "body": fields[key]
-        }
+        json['items']['nl-NL'][key] = to_json(fields[key])
+
         
     response = requests.post("https://api.eu1.prepr.io/content_items/" +(uuid if uuid else ""),
        headers= headers,
@@ -93,7 +107,12 @@ def migrate():
     for num, doc in enumerate(resp):    
         print("%s" % str(doc))
         source = doc["_source"]    
-        post_to_prepr(map_to_prepr(source))            
+        print(num)
+        post_to_prepr(map_to_prepr(source), source)
+        if num > 100:
+            # just testing. 100 should be enough
+            break
+    
 
 
 
