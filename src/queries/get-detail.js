@@ -1,8 +1,12 @@
-const GetArticleDetail = `
+const GetUpdateDetail = `
 query ($slug: String) {
-   Article (slug: $slug) {
+   3voor12update (slug: $slug) {
      _id
      title
+     subtitle
+     id
+     tags
+     slug
      content {
        __typename
        ... on Text {
@@ -18,4 +22,4 @@ query ($slug: String) {
    }
 }`
 
-export default GetArticleDetail
+export default GetUpdateDetail

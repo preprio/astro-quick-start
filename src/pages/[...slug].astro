@@ -1,15 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import {Prepr} from '../lib/prepr.js';
-import GetArticleDetail from '../queries/get-article-detail.js';
+import GetUpdate from '../queries/get-detail.js';
 
 const { slug } = Astro.params;
 
-const response = await Prepr(GetArticleDetail, {slug})
+const response = await Prepr(GetUpdate, {slug})
 
 const { data } = await response.json()
 
-const article = data.Article
+const article = data.Update
 ---
 <Layout title={article.title}>
     <main>
@@ -18,10 +18,7 @@ const article = data.Article
         {
             article.content.map((content) => (
             <div>
-                {
-                    content.__typename === "Assets" &&
-                    <img src={content.items[0].url} width="300" height="250"/>
-                }
+                
 
                 {
                     content.__typename === 'Text' &&

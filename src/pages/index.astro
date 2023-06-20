@@ -1,13 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import {Prepr} from '../lib/prepr.js';
-import GetArticles from '../queries/get-articles.js';
+import GetUpdates from '../queries/get-updates.js';
 
-const response = await Prepr(GetArticles, {})
+const response = await Prepr(GetUpdates, {})
 
 const { data } = await response.json()
 
-const articles = data.Articles
+const updates = data.updates
 ---
 
 <Layout title="Test test">
@@ -16,7 +16,7 @@ const articles = data.Articles
 	</h1>
 	<ul>
 		{
-			articles.items.map((post) => (
+			updates.items.map((post) => (
 				<li>
 					<a href={post._slug}>{post.title}</a>
 				</li>

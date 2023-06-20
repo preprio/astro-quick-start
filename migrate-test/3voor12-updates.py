@@ -14,22 +14,24 @@ headers={
 }
 
 def get_by_mgnl_uuid(uuid):
-    response = requests.get("https://api.eu1.prepr.io/content_items?items[nl-NL][mgnl_uuid][body][eq]=" + uuid + "&fields=created_by,title,items,mgnl_uuid&model[id]=" + model,
+    response = requests.get("https://api.eu1.prepr.io/content_items?items[nl-NL][id][body][eq]=" + uuid + "&fields=created_by,title,items,id,tags&model[id]=" + model,
          headers= headers,                             
          )
-    items =  response.json()["items"]
-    if len(items) > 0:
-        return items[0]
+    if response.status_code == 200:
+        items =  response.json()["items"]
+        if len(items) > 0:
+            return items[0]
+        else:
+            return None
     else:
         return None
 
 def post_to_prepr(fields):
-    result = get_by_mgnl_uuid(fields['id'])
-    uuid = result['id'] if result else None 
-    response = requests.post("https://api.eu1.prepr.io/content_items/" +(uuid if uuid else ""),
-       headers= headers,
-       json={
-           "locales": [ "nl-NL"],
+    incoming_uuid = fields['id']
+    result = get_by_mgnl_uuid(incoming_uuid)
+    uuid = result['id'] if result else None
+    json = {
+          "locales": [ "nl-NL"],
            "model": {
              "id": model
            },
@@ -43,17 +45,20 @@ def post_to_prepr(fields):
            },
            "items": {
                "nl-NL": {        
-                   "title": {
-                      "body": fields['title']
-                  },
-                  "mgnl_uuid": {
-                      "body": fields['id']
-                  }
+                 
                }
            }
-       }
+    }
+    for key in fields:      
+        json['items']['nl-NL'][key] = {
+           "body": fields[key]
+        }
+        
+    response = requests.post("https://api.eu1.prepr.io/content_items/" +(uuid if uuid else ""),
+       headers= headers,
+       json= json
     )
-    if response.status_code == 201:
+    if response.status_code >= 200 and response.status_code < 300:
         print(response.status_code)
         print(response.json())
         return
@@ -65,8 +70,13 @@ def post_to_prepr(fields):
 def map_to_prepr(source):
     return {
         'id': source['id'],
-        'title': source['title'], 
-        'text': source['text']
+        'title': source['title'],
+        'slug': source['id'],
+        'subtitle': source['subtitle'], 
+        'highlighted': source['highlighted'], 
+        'text': source['text'],
+        'tags': source['tags'] # doesn't work?
+
     }
 
 def migrate():
