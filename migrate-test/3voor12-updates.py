@@ -7,16 +7,31 @@ from dotenv import dotenv_values
 
 
 config = dotenv_values(os.path.dirname(os.path.dirname(__file__)) + '/.env')
+model = "e1cc318d-6b70-413d-8797-b438734fd19d"
+
+headers={
+    'Authorization':  'Bearer ' + config['PREPR_MIGRATE_TOKEN']
+}
+
+def get_by_mgnl_uuid(uuid):
+    response = requests.get("https://api.eu1.prepr.io/content_items?items[nl-NL][mgnl_uuid][body][eq]=" + uuid + "&fields=created_by,title,items,mgnl_uuid&model[id]=" + model,
+         headers= headers,                             
+         )
+    items =  response.json()["items"]
+    if len(items) > 0:
+        return items[0]
+    else:
+        return None
+
 def post_to_prepr(fields):
-    token = config['PREPR_MIGRATE_TOKEN']
-    response = requests.post("https://api.eu1.prepr.io/content_items",
-       headers={
-              'Authorization':  'Bearer ' + token
-       },
+    result = get_by_mgnl_uuid(fields['id'])
+    uuid = result['id'] if result else None 
+    response = requests.post("https://api.eu1.prepr.io/content_items/" +(uuid if uuid else ""),
+       headers= headers,
        json={
            "locales": [ "nl-NL"],
            "model": {
-             "id": "e1cc318d-6b70-413d-8797-b438734fd19d"
+             "id": model
            },
            "status": {
               "nl-NL": {
@@ -32,7 +47,7 @@ def post_to_prepr(fields):
                       "body": fields['title']
                   },
                   "mgnl_uuid": {
-                      "body": fields['id'][0:20]
+                      "body": fields['id']
                   }
                }
            }
