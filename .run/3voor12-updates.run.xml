@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="3voor12-updates" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-    <module name="prepr-astro" />
+    <module name="prepr-poc" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
     <envs>

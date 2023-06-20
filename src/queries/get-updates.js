@@ -1,7 +1,7 @@
 const GetUpdates = `
 query {
-    3voor12update {
-        items {
+    Drievoor12updates {
+      items {
             _id
             _slug
             title,
@@ -9,7 +9,7 @@ query {
             text,
             tags,
             highlighted
-        }
+       }
     }
 }
 `

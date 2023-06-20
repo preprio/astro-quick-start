@@ -1,5 +1,4 @@
 {
-  "id" : "e1cc318d-6b70-413d-8797-b438734fd19d",
   "created_on" : "2023-06-20T09:06:09+00:00",
   "changed_on" : "2023-06-20T13:15:57+00:00",
   "body" : "3voor12 update",
@@ -33,7 +32,6 @@
     "body" : "Title",
     "view" : "single_line",
     "localized" : true,
-    "id" : "3b25237d-06b8-477e-be02-8a2283003c07",
     "api_id" : "title",
     "created_on" : "2023-06-20T09:06:10+00:00",
     "changed_on" : "2023-06-20T09:06:10+00:00",
@@ -64,7 +62,6 @@
     "body" : "subtitle",
     "view" : "single_line",
     "localized" : true,
-    "id" : "c66ee41a-2b3f-48a9-81b2-e04776c6e26a",
     "api_id" : "subtitle",
     "created_on" : "2023-06-20T12:59:33+00:00",
     "changed_on" : "2023-06-20T12:59:33+00:00",

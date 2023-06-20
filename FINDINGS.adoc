@@ -17,6 +17,23 @@ This repo is a for of a astro-demo from prepr. Will just play a bit with it.
 
 - install yarn and pnpm using brew, then follow the steps in `README.md`
 
+== Flask example
+
+Also tries a flask frontend, since I'm a bit more familiar with that.
+
+use the virtualenvironment described in #Data-migratie.
+
+[source, bash]]
+----
+cd flask 
+flask$ flask --debug run
+ * Debug mode: on
+2023-06-20 21:14:41,473 INFO WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2023-06-20 21:14:41,473 INFO Press CTRL+C to quit
+2023-06-20 21:14:41,474 INFO  * Restarting with stat
+2023-06-20 21:14:41,597 WARNING  * Debugger is active!
+2023-06-20 21:14:41,603 INFO  * Debugger PIN: 711-940-217
 
 == Model
 
@@ -39,6 +56,7 @@ Kon domweg gefixt worden in de redactieomgeving, want daar had ik blijkbaar een 
 - Ik had mgnl_uuid veld per ongeluk een maximale lengte gegeven. Dat later niet nodig gevonden, en weer verwijderd, maar hij blijft fouten geven over body.length.max. Caching? Defaults?
 - LInk https://docs.prepr.io/reference/rest/v1/fetching-working-with-fields naar graphql is broken
 - Queries lijkt niet per se goed te werken. Je kunt queryen op slug: https://docs.prepr.io/reference/rest/v1/fetching-single-items, maar hoe ik dan op een andere veld zou moeten queryen, is mij niet duidelijk. slug vervangen door mgnl_uuid lijkt domweg te worden genegeerd (geen validatie op query parameters natuurlijk)
+ -> zie 3voor12-updates.py voor hoe het wel gaat.
 
 
 == Data-migratie
