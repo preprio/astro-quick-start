@@ -31,7 +31,23 @@ Kon domweg gefixt worden in de redactieomgeving, want daar had ik blijkbaar een 
 == Data-migratie
 
 https://docs.prepr.io/developing-with-prepr/migrate-content
+
 https://docs.prepr.io/reference/rest/v1/content-items-create-update-and-destroy
 
+=== python
+
+[source, bash]
+----
+mihxil@baleno:~$ python3 -m venv ~/venvs/vpro-migrate
+mihxil@baleno:~$ source ~/venvs/vpro-migrate/bin/activate
+
+pip3 install elasticsearch python-dotenv
+----
+
+Tunnel ES:
+[source, bash]
+----
+ssh -L9210:localhost:9200 os2-api-prod-01
+----
 
 
