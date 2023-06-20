@@ -99,10 +99,12 @@ def migrate():
     resp = helpers.scan(
       es,
       index="3voor12_updates", 
-      scroll = '3m'
+      scroll = '3m',
+      preserve_order=True,
+      query= {
+      'sort':'publishDate:desc'
+      } 
     )
-
-
 
     for num, doc in enumerate(resp):    
         print("%s" % str(doc))

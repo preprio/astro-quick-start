@@ -1,9 +1,14 @@
 import logging
 import os
+from datetime import datetime
+from zoneinfo import ZoneInfo
+import locale
+locale.setlocale(locale.LC_ALL, 'nl_NL')
 
 import requests
 from dotenv import dotenv_values
 from flask import Flask, render_template
+
 
 app = Flask(__name__)
 
@@ -61,7 +66,8 @@ def update(uuid):
           id
           title  
           subtitle
-          text    
+          text   
+          _publish_on 
         }
       }
     }
@@ -69,6 +75,11 @@ def update(uuid):
     return render_template('update.html', update=json['data']['Drievoor12updates']['items'][0])
 
 
+@app.template_filter('datetime')
+def _jinja2_filter_datetime(date):
+    date = datetime.fromisoformat(date)
+    native = date.replace(tzinfo=ZoneInfo('Europe/Amsterdam'))
+    return native.strftime('%d %B, %Y') 
 
 if __name__ == "__main__":
     app.run(debug=True)
