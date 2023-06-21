@@ -1,27 +1,33 @@
 = Findings
-
+:toc:
 
 == Editor
 
 https://news-vpro-mihxil.prepr.io/
 
 - Bootstrapped with sample data/model
+- Renamed article to Drievoor12update
+- Added and removed some fields
+- The id field will contain the original id (in magnolia, in elasticsearch and in the api)
 
 
-== API
-Just put the key in `.env`
+== Prepr API
 
-This repo is a for of a astro-demo from prepr. Will just play a bit with it.
+Just put the key in `.env`, it can be picked up by astro and the python scripts.
+
+This repo is a for of the astro-demo from prepr. We will just play a bit with it.
 
 == Astro example
 
-- install yarn and pnpm using brew, then follow the steps in `README.md`
+- install yarn and pnpm using brew, then follow the steps in `README.md` 
+
+At first, I find astro it a bit hard to understand, and mainly I don't know how to debug it. In my efforts I broke it and seemingly can't fixt it. So that may be just me. 
 
 == Flask example
 
-Also tries a flask frontend, since I'm a bit more familiar with that.
+Also tried a flask frontend, since I'm a bit more familiar with that, and more readily knew how to debug it.
 
-use the virtualenvironment described in #Data-migratie.
+Uses the virtualenvironment described in xref:_data_migration[]
 
 [source, bash]]
 ----
@@ -34,13 +40,29 @@ flask$ flask --debug run
 2023-06-20 21:14:41,474 INFO  * Restarting with stat
 2023-06-20 21:14:41,597 WARNING  * Debugger is active!
 2023-06-20 21:14:41,603 INFO  * Debugger PIN: 711-940-217
+----
 
 == Model
 
-No idea of the model allowe for enough features. E.g. I tried to add a UUID field, to store the original UUID in magnolia. I think I could only try to validate it with regex pattern?
+No idea of the model allows for enough features. E.g. I tried to add a UUID field, to store the original UUID in magnolia. I think I could only try to validate it with regex pattern?
 
 In this case it would perhaps make sense to just reused the id, UUID are unique, aren't they? I haven't figured out how to do that yet.
 - Simple posting to content_images/<my uuid> gives 404.  -> Isn't possible right now (though Tim suggest that it might be possible to improve that)
+
+I have no idea if we could supply custom field types, e.g. integration for the POMS CMSSelector, for the Thesaurus, for Proof of Provenance fields. 
+
+=== security
+For 3voor12 we also have users which may only edit a subset of the content. I could easily make a new account, but didn't readily find a ay to restrict access
+
+=== tree structure
+
+In magnolia the updates are actually stored in a tree, also because of the mentioned authorization issue. I think in prepr content is not in any tree, but just a flat list. This might be preferable by the way. I suppose we could use collections to have a similar division structure. (3 voor 12 Utrecht, 3voor 12 Amsterdam, etc)
+
+
+=== Images
+
+I haven't tried images yet. I think we feel that it would be nice if images could be stored outside the CMS itself. But see the previous point, in that case some GUI plugin must be possible to arrange the integration.
+
 
 
 == Issues & Remarks
@@ -59,7 +81,10 @@ Kon domweg gefixt worden in de redactieomgeving, want daar had ik blijkbaar een 
  -> zie 3voor12-updates.py voor hoe het wel gaat.
 
 
-== Data-migratie
+== Data migration
+
+As a test, and to have some data to play with, I migrated the latest 3voor12 updates to prepr.
+
 
 https://docs.prepr.io/developing-with-prepr/migrate-content
 
@@ -81,4 +106,11 @@ Tunnel ES:
 ssh -L9210:localhost:9200 os2-api-prod-01
 ----
 
+Run the link:migrate-test/3voor12-updates.py[script]. 
+
+- This will the latest (published) 3voor12 updates to prepr
+  * this may not be correct, because we may also want to migrate unpublished updates 
+- slugs are not filled, for some reason
+  * we don't use slugs in the current setup (using the api), but just refer to by uuid. For seo we just put the title in the url?
+- 
 
