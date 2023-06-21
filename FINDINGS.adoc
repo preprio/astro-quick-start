@@ -83,12 +83,12 @@ Kon domweg gefixt worden in de redactieomgeving, want daar had ik blijkbaar een 
 - LInk https://docs.prepr.io/reference/rest/v1/fetching-working-with-fields naar graphql is broken
 - Queries lijkt niet per se goed te werken. Je kunt queryen op slug: https://docs.prepr.io/reference/rest/v1/fetching-single-items, maar hoe ik dan op een andere veld zou moeten queryen, is mij niet duidelijk. slug vervangen door mgnl_uuid lijkt domweg te worden genegeerd (geen validatie op query parameters natuurlijk)
  -> zie 3voor12-updates.py voor hoe het wel gaat.
+- Er is een tool om graphql queries samen te stellen, maar die ben ik steeds kwijt.
 
 
 == Data migration
 
 As a test, and to have some data to play with, I migrated the latest 3voor12 updates to prepr.
-
 
 https://docs.prepr.io/developing-with-prepr/migrate-content
 
