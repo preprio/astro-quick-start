@@ -59,7 +59,8 @@ def index():
     return render_template('index.html', updates=json['data']['Drievoor12updates']['items'])
 
 @app.route('/<path:uuid>')
-def update(uuid):
+@app.route('/<path:uuid>/<path:title>')
+def update(uuid: str, title:str):
     json = get("""query  {
       Drievoor12updates(where: {id:"%s"}) {
         items {
@@ -76,10 +77,14 @@ def update(uuid):
 
 
 @app.template_filter('datetime')
-def _jinja2_filter_datetime(date):
+def filter_datetime(date):
     date = datetime.fromisoformat(date)
     native = date.replace(tzinfo=ZoneInfo('Europe/Amsterdam'))
     return native.strftime('%d %B, %Y') 
+
+@app.template_filter('path')
+def filter_path(title):
+    return title.replace(' ', '-').lower()
 
 if __name__ == "__main__":
     app.run(debug=True)
