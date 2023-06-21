@@ -1,13 +1,13 @@
 <html lang="en">
   <head>
  
-    <title>Title</title>
+    <title>3voor12</title>
   </head>
   <body>
     <h1>3voor12 updates</h1>
     <ul id="updates">
       {% for update in updates %}
-      <li><a href="{{update.id}}">{{update.title}}</a></li>
+      <li><a href="{{update.id}}/{{update.title | path}}">{{update.title}}</a></li>
       {% endfor %}
     </ul>
 
