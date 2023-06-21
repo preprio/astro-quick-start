@@ -1,6 +1,6 @@
 const GetUpdates = `
 query {
-    Drievoor12updates {
+   Drievoor12updates(limit: 30, sort: changed_on_DESC) {    
       items {
             _id
             _slug

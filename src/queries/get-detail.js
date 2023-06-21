@@ -1,6 +1,6 @@
-const GetUpdateDetail = `
+const GetDrievoor12UpdateDetail = `
 query ($slug: String) {
-   3voor12update (slug: $slug) {
+   Drievoor12update (slug: $slug) {
      _id
      title
      subtitle
@@ -22,4 +22,4 @@ query ($slug: String) {
    }
 }`
 
-export default GetUpdateDetail
+export default GetDrievoor12UpdateDetail

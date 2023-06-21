@@ -1,32 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import {Prepr} from '../lib/prepr.js';
-import GetUpdate from '../queries/get-detail.js';
+import GetDrievoor12UpdateDetail from '../queries/get-detail.js';
 
 const { slug } = Astro.params;
 
-const response = await Prepr(GetUpdate, {slug})
+const response = await Prepr(GetDrievoor12UpdateDetail, {slug})
 
 const { data } = await response.json()
 
-const article = data.Update
+const update = data
 ---
-<Layout title={article.title}>
+<Layout title={update}>
     <main>
-        <h1>{article.title}</h1>
-
-        {
-            article.content.map((content) => (
-            <div>
-                
-
-                {
-                    content.__typename === 'Text' &&
-                    <div set:html={content.body}></div>
-                }
-            </div>
-            ))
-        }
+        <h1>{update}</h1>
     </main>
 </Layout>
 

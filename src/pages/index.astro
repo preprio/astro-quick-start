@@ -5,20 +5,20 @@ import GetUpdates from '../queries/get-updates.js';
 
 const response = await Prepr(GetUpdates, {})
 
-const { data } = await response.json()
+const { json } = await response.json()
 
-const updates = data.updates
+const updates = json.Drievoor12updates.items
 ---
 
 <Layout title="Test test">
 	<h1>
-		My blog site
+		3 voor 12 updates
 	</h1>
 	<ul>
 		{
-			updates.items.map((post) => (
+			updates.items.map((update) => (
 				<li>
-					<a href={post._slug}>{post.title}</a>
+					<a href="{update._slug}">{update.title}</a>
 				</li>
 			))
 		}
