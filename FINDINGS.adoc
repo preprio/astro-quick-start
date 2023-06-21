@@ -63,6 +63,10 @@ In magnolia the updates are actually stored in a tree, also because of the menti
 
 I haven't tried images yet. I think we feel that it would be nice if images could be stored outside the CMS itself. But see the previous point, in that case some GUI plugin must be possible to arrange the integration.
 
+=== Model in code
+It should be possible to maintain the model in code. It is at least possible to export it. According to Tim I should be possible to import it too. I didn't succeed in making a change and updating it, but I didn't try very hard.
+
+Also model (and problably everything alse) are referred to by UUID, which may be needed here and there. E.g. when using the backend api. UUID's are hard to remember and to read, and there is the risc that they change when rebuilding the model somewhere else, making it necessary to maintain mappings from uuids to names. Perhaps this can be remedied, or perhaps it is not a problem in practice.
 
 
 == Issues & Remarks
