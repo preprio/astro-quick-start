@@ -5,9 +5,9 @@ import GetUpdates from '../queries/get-updates.js';
 
 const response = await Prepr(GetUpdates, {})
 
-const { json } = await response.json()
+const { data } = await response.json()
 
-const updates = json.Drievoor12updates.items
+const updates = data.Drievoor12updates.items
 ---
 
 <Layout title="Test test">
@@ -16,9 +16,9 @@ const updates = json.Drievoor12updates.items
 	</h1>
 	<ul>
 		{
-			updates.items.map((update) => (
+			updates.map((update) => (
 				<li>
-					<a href="{update._slug}">{update.title}</a>
+					<a href={update.id}>{update.title}</a>
 				</li>
 			))
 		}

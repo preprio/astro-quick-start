@@ -1,17 +1,15 @@
 const GetUpdates = `
-query {
-   Drievoor12updates(limit: 30, sort: changed_on_DESC) {    
-      items {
-            _id
-            _slug
-            title,
-            subtitle,
-            text,
-            tags,
-            highlighted
-       }
+query  listall {
+      Drievoor12updates(limit: 30, sort: changed_on_DESC) {    
+        items {
+          _id
+          _slug
+          id
+          title  
+          subtitle
+        }
+      }
     }
-}
 `
 
 export default GetUpdates

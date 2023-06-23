@@ -19,7 +19,13 @@ This repo is a for of the astro-demo from prepr. We will just play a bit with it
 
 == Astro example
 
-- install yarn and pnpm using brew, then follow the steps in `README.md` 
+- install yarn and pnpm using brew, then follow the steps in `README.md`
+
+[source, bash]
+----
+npm run dev
+
+----
 
 At first, I find astro it a bit hard to understand, and mainly I don't know how to debug it. In my efforts I broke it and seemingly can't fixt it. So that may be just me. 
 
@@ -27,7 +33,7 @@ At first, I find astro it a bit hard to understand, and mainly I don't know how 
 
 Also tried a flask frontend, since I'm a bit more familiar with that, and more readily knew how to debug it.
 
-Uses the virtualenvironment described in xref:_data_migration[]
+Uses the virtualenvironment described in xref:d_data_migration[]
 
 [source, bash]]
 ----
@@ -83,7 +89,7 @@ Kon domweg gefixt worden in de redactieomgeving, want daar had ik blijkbaar een 
 - LInk https://docs.prepr.io/reference/rest/v1/fetching-working-with-fields naar graphql is broken
 - Queries lijkt niet per se goed te werken. Je kunt queryen op slug: https://docs.prepr.io/reference/rest/v1/fetching-single-items, maar hoe ik dan op een andere veld zou moeten queryen, is mij niet duidelijk. slug vervangen door mgnl_uuid lijkt domweg te worden genegeerd (geen validatie op query parameters natuurlijk)
  -> zie 3voor12-updates.py voor hoe het wel gaat.
-- Er is een tool om graphql queries samen te stellen, maar die ben ik steeds kwijt.
+- Er is een link:https://studio.apollographql.com/sandbox/explorer[tool om graphql queries samen te stellen], maar die ben ik steeds kwijt.
 
 
 == Data migration
