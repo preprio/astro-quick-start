@@ -33,7 +33,7 @@ At first, I find astro it a bit hard to understand, and mainly I don't know how 
 
 Also tried a flask frontend, since I'm a bit more familiar with that, and more readily knew how to debug it.
 
-Uses the virtualenvironment described in xref:d_data_migration[]
+Uses the virtualenvironment described in xref:_data_migration[]
 
 [source, bash]]
 ----
@@ -73,6 +73,26 @@ I haven't tried images yet. I think we feel that it would be nice if images coul
 It should be possible to maintain the model in code. It is at least possible to export it. According to Tim I should be possible to import it too. I didn't succeed in making a change and updating it, but I didn't try very hard.
 
 Also model (and problably everything alse) are referred to by UUID, which may be needed here and there. E.g. when using the backend api. UUID's are hard to remember and to read, and there is the risc that they change when rebuilding the model somewhere else, making it necessary to maintain mappings from uuids to names. Perhaps this can be remedied, or perhaps it is not a problem in practice.
+
+== Custom gui 
+
+This https://docs.prepr.io/create-schema/remote-content-source may facilate a few of the things we may need.
+
+'Upgrade om meer remote sources toe te voegen
+1 remote sources zijn toegestaan in het community plan. Upgrade naar Entry, Scale or Enterprise om er meer toe te voegen.'
+
+-> bedoelen ze 'niet toegestaan?'.
+
+
+* Is het ook mogelijk om een externe DAM te gebruiken?
+* 
+
+
+=== field types
+https://docs.prepr.io/create-schema/field-types 
+
+Wordt gesproken of een 'comprehensive list', dus ik vermoed dat het niet voor de hand ligt om er iets aan te customizen. 
+
 
 
 == Issues & Remarks
