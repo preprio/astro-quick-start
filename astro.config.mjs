@@ -4,7 +4,6 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   mode: "ssr",
   output: "server",
-  base,
   adapter: node({
     mode: "middleware",
   }),
