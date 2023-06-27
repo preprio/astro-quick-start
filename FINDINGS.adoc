@@ -89,7 +89,7 @@ This https://docs.prepr.io/create-schema/remote-content-source may facilate a fe
 
 
 * Is het ook mogelijk om een externe DAM te gebruiken?
-* 
+ --> Ze schrijven van wel.
 
 
 === field types
@@ -97,6 +97,12 @@ https://docs.prepr.io/create-schema/field-types
 
 Wordt gesproken of een 'comprehensive list', dus ik vermoed dat het niet voor de hand ligt om er iets aan te customizen. 
 
+
+=== remote source
+
+https://docs.prepr.io/integrations/build-your-own
+
+Dat zijn blijkbaar de opties. Je moet een api aanbieden die precies doet hoe het daar is gespecificeerd. Aangezien de EO prepr gebruikt dacht ik dat misschien https://pomslookup.eo.nl/ zou kunnen volstaan, maar dat is niet zo, dat is domweg een bakje javascript dat rechstreeks met de NPO frontend api praat.
 
 
 == Issues & Remarks

@@ -9,6 +9,9 @@ const response = await Prepr(GetDrievoor12UpdateDetail, {id})
 
 const { data } = await response.json()
 
+console.log("data", data)
+
+
 const updates = data.Drievoor12updates.items
 const update = updates[0]
 
@@ -25,6 +28,9 @@ console.log(update)
       <div set:html={update.text} />
 
       <span>{update._publish_on}</span>
+      
+      <hr />
+      <a href=".">Terug</a>
     </main>
 </Layout>
 
