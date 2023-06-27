@@ -29,6 +29,8 @@ npm run dev
 
 At first, I find astro it a bit hard to understand, and mainly I don't know how to debug it. In my efforts I broke it and seemingly can't fixt it. So that may be just me. 
 
+Running on https://prepr-poc.vpro-test.apps.vpro.cluster.chp4.io/
+
 == Flask example
 
 Also tried a flask frontend, since I'm a bit more familiar with that, and more readily knew how to debug it.
