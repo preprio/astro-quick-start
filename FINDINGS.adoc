@@ -31,6 +31,8 @@ At first, I find astro it a bit hard to understand, and mainly I don't know how 
 
 Running on https://prepr-poc.vpro-test.apps.vpro.cluster.chp4.io/
 
+(deployed via https://git.vpro.nl/vrije-ruimte/michiel/prepr-poc/ (accessible @vpro only))
+
 == Flask example
 
 Also tried a flask frontend, since I'm a bit more familiar with that, and more readily knew how to debug it.
