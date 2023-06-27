@@ -1,7 +1,7 @@
-# astro-quick-start
+# Astro Quick Start
 The Astro quick start project launches a blog app with content from Prepr.
 
-[Stackblitz demo](https://stackblitz.com/edit/astro-quick-start)
+Check out the [Stackblitz demo](https://stackblitz.com/edit/astro-quick-start) for zero installation.
 
 ## Setup
 
