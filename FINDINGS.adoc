@@ -174,7 +174,14 @@ Run the link:migrate-test/3voor12-updates.py[script].
 == Conclusion?
 
 - Prepr seems to be a straighforward headless CMS. With a graphql api. I could quite easily migrate some existing content and make two different frontends with it.
-- It has some interesting features, like a log of executed queries per access token, like webhook call backs, like a / b -testing (not tried), personalization (not tried) 
+- It has some interesting features
+ * like a log of executed queries per access token
+ * like webhook call backs
+ * like a / b -testing (not tried) 
+ * personalization (not tried)
+ * workflow and embargos
+ * 'kanban'view on workflow
+ * ..
 - It may be somewhat fragile, I encountered several issues, which may  be partially caused by my unwieldy  behaviour (as I was trying things out), so I can't say for sure that this would be common in practice.
 - There is also a backend api which can be used to post json to create or modify content.  E.g. for migration purposes.
 - We would have little influence on details of the gui, but otherwise complete freedom on how to structure the data. It has a bunch of field types, which can be grouped into components, and we could have 'remote sources', wich may be useful for some use cases.
