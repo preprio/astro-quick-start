@@ -62,7 +62,22 @@ In this case it would perhaps make sense to just reused the id, UUID are unique,
 I have no idea if we could supply custom field types, e.g. integration for the POMS CMSSelector, for the Thesaurus, for Proof of Provenance fields. 
 
 === security
-For 3voor12 we also have users which may only edit a subset of the content. I could easily make a new account, but didn't readily find a ay to restrict access
+For 3voor12 we also have users which may only edit a subset of the content.
+
+I found https://prepr.io/blog/new-role-based-access-control
+
+The contained link to the documentation is broken, but I found https://docs.prepr.io/account/roles-and-permissions/
+(btw, if they used prepr to make their own website, we might conclude that cross links are fragile!)
+
+According to documentation we should be able to manage roles:
+'User roles can be managed by all users who have the Organization permission of Roles. To manage user roles, click the environment dropdown at the top right, choose your organization and click  to open the environments overview, then go to User management > Roles. Here you can see a list of all roles in your organization.
+'
+
+I might be overlooking it or lacking permissions, but I can't find it.
+
+We like to have integration with keycloak, which may not be possible, but I think there is an integration with azure: https://docs.prepr.io/account/sso
+, which also might fit our needs.
+
 
 === tree structure
 
@@ -85,7 +100,7 @@ This https://docs.prepr.io/create-schema/remote-content-source may facilate a fe
 'Upgrade om meer remote sources toe te voegen
 1 remote sources zijn toegestaan in het community plan. Upgrade naar Entry, Scale or Enterprise om er meer toe te voegen.'
 
--> bedoelen ze 'niet toegestaan?'.
+-> Ze bedoelen: 'er is maar 1 remote source toegestaan'. Ik was in war door de onduidelijke grammatica. Heb de example webshop verwijderd, en toen kon ik er inderdaad eentje maken. Ging nog van alles aan fout. Api raakt kapot door inconsistent data die daardoor onstond. Ze moesten handmatig caches clearen, anders kon ik het helemaal niet verwijderen. (ik had de componenten die het gebruikte verwijderd, maar hij bleef zeggen dat ik de remote source niet mocht verwijderen om dat er nog componenten waren die het gebruikten)
 
 
 * Is het ook mogelijk om een externe DAM te gebruiken?
@@ -95,7 +110,8 @@ This https://docs.prepr.io/create-schema/remote-content-source may facilate a fe
 === field types
 https://docs.prepr.io/create-schema/field-types 
 
-Wordt gesproken of een 'comprehensive list', dus ik vermoed dat het niet voor de hand ligt om er iets aan te customizen. 
+Wordt gesproken of een 'comprehensive list', dus ik vermoed dat het niet voor de hand ligt om er iets aan te customizen. ->
+Ze hebben gezegd dat het inderdaad niet kan. Maar dat ze natuurlijk eventueel wel kunnen overwegen om het toe te voegen.
 
 
 === remote source
@@ -153,4 +169,17 @@ Run the link:migrate-test/3voor12-updates.py[script].
 - slugs are not filled, for some reason
   * we don't use slugs in the current setup (using the api), but just refer to by uuid. For seo we just put the title in the url?
 - 
+
+
+== Conclusion?
+
+- Prepr seems to be a straighforward headless CMS. With a graphql api. I could quite easily migrate some existing content and make two different frontends with it.
+- It has some interesting features, like a log of executed queries per access token, like webhook call backs, like a / b -testing (not tried), personalization (not tried) 
+- It may be somewhat fragile, I encountered several issues, which may  be partially caused by my unwieldy  behaviour (as I was trying things out), so I can't say for sure that this would be common in practice.
+- There is also a backend api which can be used to post json to create or modify content.  E.g. for migration purposes.
+- We would have little influence on details of the gui, but otherwise complete freedom on how to structure the data. It has a bunch of field types, which can be grouped into components, and we could have 'remote sources', wich may be useful for some use cases.
+- I think there is integration with azure (I even encountered bnnvara and eo links in radio prepr)
+
+
+
 
