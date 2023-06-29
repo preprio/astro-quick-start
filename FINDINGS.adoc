@@ -75,6 +75,12 @@ According to documentation we should be able to manage roles:
 
 I might be overlooking it or lacking permissions, but I can't find it.
 
+-> Yes, it had to do with that.
+
+I've seen it now, it seems to  offer rights per content model/locale.
+I think that for 3voor12 updates this would e.g. mean that different lokaal-temas would have their own copy of the content model?
+
+
 We like to have integration with keycloak, which may not be possible, but I think there is an integration with azure: https://docs.prepr.io/account/sso
 , which also might fit our needs.
 
@@ -186,6 +192,7 @@ Run the link:migrate-test/3voor12-updates.py[script].
 - There is also a backend api which can be used to post json to create or modify content.  E.g. for migration purposes.
 - We would have little influence on details of the gui, but otherwise complete freedom on how to structure the data. It has a bunch of field types, which can be grouped into components, and we could have 'remote sources', wich may be useful for some use cases.
 - I think there is integration with azure (I even encountered bnnvara and eo links in radio prepr)
+
 
 
 
