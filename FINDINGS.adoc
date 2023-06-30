@@ -176,6 +176,12 @@ Run the link:migrate-test/3voor12-updates.py[script].
   * we don't use slugs in the current setup (using the api), but just refer to by uuid. For seo we just put the title in the url?
 - 
 
+== Interesting extra features
+
+- kanban board
+- debug-tools
+- a/b testing
+- ..
 
 == Conclusion?
 
