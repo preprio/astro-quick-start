@@ -1,6 +1,15 @@
 = Findings
 :toc:
 
+For this proof-of-concept, we would like to answer the following questions:
+
+- What are the possibilities with respect to Authorization (multi tenant)?
+- Is there any integration with external single-sign-on systems/protocols, such as Azure/OpenID?
+- Is there a workflow? Can we configure it? Can we schedule publications?
+- Where are images/assets stored? Can we link an external storage such as s3?
+- To what extend is there a flexible richtext-editor? Is there the ability to add crosslinks / images / documents / ...?
+
+
 == Editor
 
 https://news-vpro-mihxil.prepr.io/
@@ -10,58 +19,17 @@ https://news-vpro-mihxil.prepr.io/
 - Added and removed some fields
 - The id field will contain the original id (in magnolia, in elasticsearch and in the api)
 
-
-== Prepr API
-
-Just put the key in `.env`, it can be picked up by astro and the python scripts.
-
-This repo is a for of the astro-demo from prepr. We will just play a bit with it.
-
-== Astro example
-
-- install yarn and pnpm using brew, then follow the steps in `README.md`
-
-[source, bash]
-----
-npm run dev
-
-----
-
-At first, I find astro it a bit hard to understand, and mainly I don't know how to debug it. In my efforts I broke it and seemingly can't fixt it. So that may be just me. 
-
-Running on https://prepr-poc.vpro-test.apps.vpro.cluster.chp4.io/
-
-(deployed via https://git.vpro.nl/vrije-ruimte/michiel/prepr-poc/ (accessible @vpro only))
-
-== Flask example
-
-Also tried a flask frontend, since I'm a bit more familiar with that, and more readily knew how to debug it.
-
-Uses the virtualenvironment described in xref:_data_migration[]
-
-[source, bash]]
-----
-cd flask 
-flask$ flask --debug run
- * Debug mode: on
-2023-06-20 21:14:41,473 INFO WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
- * Running on http://127.0.0.1:5000
-2023-06-20 21:14:41,473 INFO Press CTRL+C to quit
-2023-06-20 21:14:41,474 INFO  * Restarting with stat
-2023-06-20 21:14:41,597 WARNING  * Debugger is active!
-2023-06-20 21:14:41,603 INFO  * Debugger PIN: 711-940-217
-----
-
 == Model
 
-No idea of the model allows for enough features. E.g. I tried to add a UUID field, to store the original UUID in magnolia. I think I could only try to validate it with regex pattern?
+No idea if the model allows for enough features. E.g. I tried to add a UUID field, to store the original UUID in magnolia. I think I could only try to validate it with regex pattern?
 
 In this case it would perhaps make sense to just reused the id, UUID are unique, aren't they? I haven't figured out how to do that yet.
 - Simple posting to content_images/<my uuid> gives 404.  -> Isn't possible right now (though Tim suggest that it might be possible to improve that)
 
 I have no idea if we could supply custom field types, e.g. integration for the POMS CMSSelector, for the Thesaurus, for Proof of Provenance fields. 
 
-=== security
+=== Security
+
 For 3voor12 we also have users which may only edit a subset of the content.
 
 I found https://prepr.io/blog/new-role-based-access-control
