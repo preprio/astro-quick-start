@@ -1,6 +1,7 @@
 = Findings
 :toc:
 
+== Research questions
 For this proof-of-concept, we would like to answer the following questions:
 
 - What are the possibilities with respect to Authorization (multi tenant)?
@@ -8,6 +9,20 @@ For this proof-of-concept, we would like to answer the following questions:
 - Is there a workflow? Can we configure it? Can we schedule publications?
 - Where are images/assets stored? Can we link an external storage such as s3?
 - To what extend is there a flexible richtext-editor? Is there the ability to add crosslinks / images / documents / ...?
+
+== Investigation method
+
+To get some hands-on experience with each individual headless-CMS that we're investigating, we setup a small proof-of-concept with sample data from our vproapi. For that, we used 3voor12-updates to model the data, and import 3voor12-updates from the vproapi into Prepr. In addition, we read the Prepr-documentation and asked questions to Prepr (users) about their experience on the topics.
+
+== Authorization
+
+As an organisation, you can have multiple environments (https://docs.prepr.io/account/environments/). Each environment has its own "schema" (https://docs.prepr.io/create-schema/overview), which defines the structure of the content for that specific environment. It contains models, components and remote content.
+
+Given the structure of environments and schema's, users in Prepr can be defined on two levels: on the organisation level (thus for all environments) and on an environment-level (https://docs.prepr.io/account/users/#managing-user-accounts).
+It is not exactly clear wether this also holds for roles & permissions, but it seems that fine-grained custom roles can be created per environment (https://docs.prepr.io/account/roles-and-permissions/) (TODO: ask Prepr / EO about this).
+
+
+
 
 
 == Editor
