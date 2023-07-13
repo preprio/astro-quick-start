@@ -22,7 +22,9 @@ Given the structure of environments and schema's, users in Prepr can be defined 
 It is not exactly clear wether this also holds for roles & permissions, but it seems that fine-grained custom roles can be created per environment (https://docs.prepr.io/account/roles-and-permissions/) (TODO: ask Prepr / EO about this).
 
 
+== Single Sign-on
 
+There are two options regarding single sign-on: 1) using Prepr's custom SSO, or 2) using Azure AD (https://docs.prepr.io/account/sso).
 
 
 == Editor
