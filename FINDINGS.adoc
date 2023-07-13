@@ -21,11 +21,28 @@ As an organisation, you can have multiple environments (https://docs.prepr.io/ac
 Given the structure of environments and schema's, users in Prepr can be defined on two levels: on the organisation level (thus for all environments) and on an environment-level (https://docs.prepr.io/account/users/#managing-user-accounts).
 It is not exactly clear wether this also holds for roles & permissions, but it seems that fine-grained custom roles can be created per environment (https://docs.prepr.io/account/roles-and-permissions/) (TODO: ask Prepr / EO about this).
 
-
 == Single Sign-on
 
-There are two options regarding single sign-on: 1) using Prepr's custom SSO, or 2) using Azure AD (https://docs.prepr.io/account/sso).
+There are two options regarding single sign-on: 1) using Prepr's custom SSO, or 2) using Azure AD (https://docs.prepr.io/account/sso). There is no option for connecting with Keycloak (OpenID).
 
+(TODO: ask Prepr / EO about how roles are arranged within AD or Prepr, and whether they are syncable from AD)
+
+== Workflows
+
+Prepr has a fixed workflow, and looks somewhat like productivity tools such as Jira: there is a flow from TO-DO until done. Check out https://docs.prepr.io/managing-content/collaboration-and-workflows/ for an elaborate description.
+
+Prepr-workflows have the following steps:
+- To do: someone has to work on this item
+- In progress: item is being worked on
+- Review: item can be reviewed by a colleague
+- Done: item is done and can be published
+- Archived: item is not in use anymore
+
+When testing the workflow, it is not going automatically / logically going from one phase to another. As an editor, you have to set the workflow-status yourself (changing it in the dropdown). There's even the possibility to set it immediately to "Done". Not sure if this is just out environment where it works like that (TODO: ask Prepr / EO about workflow and whether we can give permissions to certain people for certain workflow statuses). A workflow like this could be useful, but only if people can not cut corners by changing the status to "Done" themselves, if there should be a reviewer in the process. In addition, if you want a scheduled publication you need to enable the slider with "Schedule" on the right-side of the screen, otherwise an item will automatically get published as soon as it is set to "Done".
+
+Some nice features here are: commenting / discussing an item with a fellow editor and the button "View on example site". Not sure how the latter works (TODO: ask Prepr / EO about preview). In addition, all content items can be viewed on a Kanban-board, which gives a clear overview of all the work to be done.
+
+At last, workflow-automation can be added. This works similar to e-mail filter-rules: if a certain condition is met (e.g. status is set to "Done"), a certain action follows automatically (e.g. link it to another item).
 
 == Editor
 
