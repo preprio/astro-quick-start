@@ -1,24 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import {Prepr} from '../lib/prepr.js';
-import GetArticles from '../queries/get-articles.js';
+import GetUpdates from '../queries/get-updates.js';
 
-const response = await Prepr(GetArticles)
+const response = await Prepr(GetUpdates, {})
 
 const { data } = await response.json()
 
-const articles = data.Articles
+const updates = data.Drievoor12updates.items
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Test test">
 	<h1>
-		My blog site
+		3 voor 12 updates
 	</h1>
 	<ul>
 		{
-			articles.items.map((post) => (
+			updates.map((update) => (
 				<li>
-					<a href={post._slug}>{post.title}</a>
+					<a href={update.id}>{update.title}</a>
 				</li>
 			))
 		}

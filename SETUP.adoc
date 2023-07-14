@@ -1,0 +1,34 @@
+= Setup
+
+== Prepr API
+
+Just put the key in `.env`, it can be picked up by astro and the python scripts.
+
+This repo is a for of the astro-demo from prepr. We will just play a bit with it.
+
+== Astro example
+
+- install npm using brew, then follow the steps in `README.md`
+
+It is Running on https://prepr-poc.vpro-test.apps.vpro.cluster.chp4.io/
+
+(deployed via https://git.vpro.nl/vrije-ruimte/michiel/prepr-poc/ (accessible @vpro only))
+
+== Flask example
+
+Also tried a flask frontend, since I'm a bit more familiar with that, and more readily knew how to debug it.
+
+Uses the virtualenvironment described in xref:_data_migration[]
+
+[source, bash]]
+----
+cd flask 
+flask$ flask --debug run
+ * Debug mode: on
+2023-06-20 21:14:41,473 INFO WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2023-06-20 21:14:41,473 INFO Press CTRL+C to quit
+2023-06-20 21:14:41,474 INFO  * Restarting with stat
+2023-06-20 21:14:41,597 WARNING  * Debugger is active!
+2023-06-20 21:14:41,603 INFO  * Debugger PIN: 711-940-217
+----

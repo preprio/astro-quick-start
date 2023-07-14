@@ -1,0 +1,12 @@
+<html lang="nl">
+  <head>
+    <title>{{update.title}}</title>
+  </head>
+  <body>
+    <h1>{{update.title}}</h1>
+    <h2>{{update.subtitle}}</h2>
+    {{update.text | safe}}
+
+    <p>{{update._publish_on | datetime}}</p>
+  </body>
+</html>
