@@ -23,8 +23,7 @@ It is not exactly clear wether this also holds for roles & permissions, but it s
 
 == Single Sign-on
 
-There are two options regarding single sign-on: 1) using Prepr's custom SSO, or 2) using Azure AD (https://docs.prepr.io/account/sso). There is no option for connecting with Keycloak (OpenID).
-
+There are two options regarding single sign-on: 1) using Prepr's custom SSO, or 2) using Azure AD (https://docs.prepr.io/account/sso). There is no option for connecting with Keycloak (OpenID). To what extend roles can be synced is not clear from the documentation.
 (TODO: ask Prepr / EO about how roles are arranged within AD or Prepr, and whether they are syncable from AD)
 
 == Workflows
@@ -44,7 +43,20 @@ Some nice features here are: commenting / discussing an item with a fellow edito
 
 At last, workflow-automation can be added. This works similar to e-mail filter-rules: if a certain condition is met (e.g. status is set to "Done"), a certain action follows automatically (e.g. link it to another item).
 
+== Images & assets
+
+Prepr has a custom Asset-management-system with CDN (https://docs.prepr.io/managing-content/introduction-to-assets). The following types are supported:
+
+image::findings/prepr_filetypes.png[]
+
+There are some options for editing images in content items, such as cropping, add a caption or aligning the image (https://docs.prepr.io/managing-content/images). There's nothing explicitly mentioned about metadata-customization (TODO: ask about adding custom metadata such as license information).
+
+In the documentation, it is not mentioned wether external solutions such as s3-storage are available, probably meaning it is not available. TODO: ask Prepr / EO about s3-storage
+
 == Editor
+
+The Richtext-editor has several options for enriching text, using basic options such as bold/italic, and more advanced options such as tables with table-headers and text-alignment.
+In addition, it is possible to link to images/assets and to one or more content-items.
 
 https://news-vpro-mihxil.prepr.io/
 
