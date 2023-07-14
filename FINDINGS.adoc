@@ -58,7 +58,7 @@ In the documentation, it is not mentioned wether external solutions such as s3-s
 The Richtext-editor has several options for enriching text, using basic options such as bold/italic, and more advanced options such as tables with table-headers and text-alignment.
 In addition, it is possible to link to images/assets and to one or more content-items.
 
-https://news-vpro-mihxil.prepr.io/
+== Playing with Prepr
 
 - Bootstrapped with sample data/model
 - Renamed article to Drievoor12update
