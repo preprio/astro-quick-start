@@ -1,13 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import {Prepr} from '../lib/prepr.js';
-import GetArticles from '../queries/get-articles.js';
+import GetPosts from '../queries/get-posts.js';
 
-const response = await Prepr(GetArticles)
+const response = await Prepr(GetPosts)
 
 const { data } = await response.json()
 
-const articles = data.Articles
+const posts = data.Posts
 ---
 
 <Layout title="Welcome to Astro.">
@@ -16,7 +16,7 @@ const articles = data.Articles
 	</h1>
 	<ul>
 		{
-			articles.items.map((post) => (
+			posts.items.map((post) => (
 				<li>
 					<a href={post._slug}>{post.title}</a>
 				</li>

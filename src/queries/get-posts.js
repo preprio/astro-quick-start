@@ -1,6 +1,6 @@
-const GetArticles = `
+const GetPosts = `
 query {
-    Articles {
+    Posts {
         items {
             _id
             _slug
@@ -10,4 +10,4 @@ query {
 }
 `
 
-export default GetArticles
+export default GetPosts

@@ -1,27 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import {Prepr} from '../lib/prepr.js';
-import GetArticleDetail from '../queries/get-article-detail.js';
+import GetPostBySlug from '../queries/get-post-by-slug.js';
 
 const { slug } = Astro.params;
 
-const response = await Prepr(GetArticleDetail, {slug})
+const response = await Prepr(GetPostBySlug, {slug})
 
 const { data } = await response.json()
 
-const article = data.Article
+const post = data.Post
 ---
-<Layout title={article.title}>
+<Layout title={post.title}>
     <main>
-        <h1>{article.title}</h1>
+        <h1>{post.title}</h1>
+
+        <div class="my-10">
+            <img src={post.cover.url} />
+        </div>
 
         {
-            article.content.map((content) => (
+            post.content.map((content) => (
             <div>
 
                 {
                     content.__typename === "Assets" &&
-                    <img src={content.items[0].url} width="300" height="250"/>
+                    <img src={content.items[0].url} />
                 }
 
                 {
