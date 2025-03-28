@@ -29,7 +29,7 @@ In the .env file replace `<YOUR-PREPR-API-URL>` with the Prepr access token from
 
 ## Development Server
 
-Start the development server on http://localhost:3000
+Start the development server on http://localhost:4321
 
 ```bash
 npm run dev
