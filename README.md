@@ -25,7 +25,7 @@ cp .env.example .env
 ```
 
 ## Update the environment file
-In the .env file replace `<YOUR-ACCESS-TOKEN>` with the Prepr access token from your environment with demo content.
+In the .env file replace `<YOUR-PREPR-API-URL>` with the Prepr access token from your environment with demo content.
 
 ## Development Server
 
