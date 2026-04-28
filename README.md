@@ -3,6 +3,10 @@ The Astro quick start project launches a blog app with content from Prepr.
 
 Check out the [Stackblitz demo](https://stackblitz.com/edit/astro-quick-start) for zero installation.
 
+## Requirements
+
+- **Node.js 22.12.0 or later** (required by Astro 6)
+
 ## Setup
 
 Make sure to install the dependencies:
@@ -42,6 +46,8 @@ Build the application for production:
 ```bash
 npm run build
 ```
+
+> **Note:** This project uses `output: 'server'` (SSR). To build for production you must install an Astro server adapter that matches your deploy target — for example [`@astrojs/node`](https://docs.astro.build/en/guides/integrations-guide/node/), [`@astrojs/vercel`](https://docs.astro.build/en/guides/integrations-guide/vercel/), or [`@astrojs/cloudflare`](https://docs.astro.build/en/guides/integrations-guide/cloudflare/). The development server (`npm run dev`) works without an adapter.
 
 Locally preview production build:
 
