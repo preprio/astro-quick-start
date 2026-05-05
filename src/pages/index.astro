@@ -18,7 +18,7 @@ const posts = data.Posts
 		{
 			posts.items.map((post) => (
 				<li>
-					<a href={post._slug}>{post.title}</a>
+					<a href={`/${post._slug}`}>{post.title}</a>
 				</li>
 			))
 		}
