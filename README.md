@@ -5,7 +5,7 @@ Check out the [Stackblitz demo](https://stackblitz.com/edit/astro-quick-start) f
 
 ## Requirements
 
-- **Node.js 22.12.0 or later** (required by Astro 6)
+- **Node.js 22.12.0 or later** (required by Astro 7)
 
 ## Setup
 
