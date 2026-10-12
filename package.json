@@ -16,7 +16,8 @@
     "astro": "^7.2.8"
   },
   "overrides": {
-    "devalue": "5.8.1",
+    "devalue": "5.9.2",
+    "undici": "8.10.2",
     "esbuild": "0.28.1",
     "js-yaml": "4.3.2",
     "js-yaml@<=4.1.1": ">=4.2.0",
